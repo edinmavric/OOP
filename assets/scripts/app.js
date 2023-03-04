@@ -15,7 +15,12 @@ class Product {
 class ProductItem {
   constructor(product) {
     this.product = product;
-  }
+    }
+    
+    addToCart() {
+        console.log("Adding product to cart...");
+        console.log(this.product);
+    }
 
   render() {
     const prodEl = document.createElement("li");
@@ -31,7 +36,9 @@ class ProductItem {
                   </div>
               </div>
               `;
-      return prodEl;
+      const addCartButton = prodEl.querySelector("button");
+      addCartButton.addEventListener('click', this.addToCart.bind(this))
+    return prodEl;
   }
 }
 
@@ -39,13 +46,13 @@ class ProductList {
   products = [
     new Product(
       "A Pillow",
-      "C:UsershpDownloadsoop-01-starting-setupoop-01-starting-setupindex.html",
+      "",
       "A soft pillow!",
       19.99
     ),
     new Product(
       "A Carpet",
-      "C:UsershpDownloadsoop-01-starting-setupoop-01-starting-setupindex.html",
+      "",
       "A soft carpet!",
       89.99
     ),
@@ -57,9 +64,9 @@ class ProductList {
     const renderHook = document.getElementById("app");
     const prodList = document.createElement("ul");
     prodList.className = "product-list";
-      for (const prod of this.products) {
-          const productItem = new ProductItem(prod);
-          const prodEl = productItem.render();
+    for (const prod of this.products) {
+      const productItem = new ProductItem(prod);
+      const prodEl = productItem.render();
       prodList.append(prodEl);
     }
     renderHook.append(prodList);
