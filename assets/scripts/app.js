@@ -1,5 +1,13 @@
+class Product {
+    title = 'DEFAULT';
+    imageUrl;
+    description;
+    price;
+}
+
 const productList = {
-  products: [
+    products: [
+        new Product(),
     {
       title: "A Pillow",
       imageUrl:
