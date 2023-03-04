@@ -1,36 +1,41 @@
 class Product {
-    title = 'DEFAULT';
-    imageUrl;
-    description;
-    price;
+  title = "DEFAULT";
+  imageUrl;
+  description;
+  price;
+
+  constructor(title, image, desc, price) {
+    this.title = title;
+    this.imageUrl = image;
+    this.description = desc;
+    this.price = price;
+  }
 }
 
 const productList = {
-    products: [
-        new Product(),
-    {
-      title: "A Pillow",
-      imageUrl:
-        "C:\Users\hp\Downloads\oop-01-starting-setup\oop-01-starting-setup\pillow.jpeg",
-      price: 19.99,
-      description: "A soft pillow",
-    },
-    {
-      title: "A Carpet",
-      imageUrl:
-        "C:\Users\hp\Downloads\oop-01-starting-setup\oop-01-starting-setup\pillow.jpeg",
-      price: 89.99,
-      description: "A carpet which you might like or not",
-    },
-    ],
-    render() {
-        const renderHook = document.getElementById('app');
-        const prodList = document.createElement('ul');
-        prodList.className = 'product-list';
-        for (const prod of this.products) {
-            const prodEl = document.createElement('li');
-            prodEl.className = 'product-item';
-            prodEl.innerHTML = `
+  products: [
+    new Product(
+      "A Pillow",
+      "C:UsershpDownloadsoop-01-starting-setupoop-01-starting-setupindex.html",
+      "A soft pillow!",
+      19.99
+    ),
+    new Product(
+      "A Carpet",
+      "C:UsershpDownloadsoop-01-starting-setupoop-01-starting-setupindex.html",
+      "A soft carpet!",
+      89.99
+    ),
+  ],
+
+  render() {
+    const renderHook = document.getElementById("app");
+    const prodList = document.createElement("ul");
+    prodList.className = "product-list";
+    for (const prod of this.products) {
+      const prodEl = document.createElement("li");
+      prodEl.className = "product-item";
+      prodEl.innerHTML = `
             <div>
                 <img src="${prod.imageUrl}" alt="${prod.title}">
                 <div class="product-item__content">
@@ -41,10 +46,10 @@ const productList = {
                 </div>
             </div>
             `;
-            prodList.append(prodEl);
-        }
-        renderHook.append(prodList);
+      prodList.append(prodEl);
     }
+    renderHook.append(prodList);
+  },
 };
 
 productList.render();
